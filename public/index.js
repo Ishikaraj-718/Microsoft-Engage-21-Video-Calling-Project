@@ -22,14 +22,4 @@ const input= document.getElementById("input").value=val;
   })
 }
 
-function onSignIn(googleUser) {
-  var id_token = googleUser.getAuthResponse().id_token;
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onload = function() {
 
-};
-xhr.send(JSON.stringify({token:id_token}));
-  
-}

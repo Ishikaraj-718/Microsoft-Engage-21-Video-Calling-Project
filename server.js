@@ -1,8 +1,8 @@
 const express = require('express')
-const app = express()  
+const app = express()
 
 const http=require("http");
-const cookieParser=require('cookie-parser');
+
 const mongoose =require("mongoose");
 const bodyParser = require("body-parser");
 const server = require('http').Server(app)
@@ -11,10 +11,7 @@ const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, {
   debug: true
 });
-// Google Auth
-const {OAuth2Client} = require('google-auth-library');
-const CLIENT_ID="854582330305-6roueat79vs5unb14908pd96h6pf5umb.apps.googleusercontent.com";
-const client = new OAuth2Client(CLIENT_ID);
+
 const { v4: uuidV4 } = require('uuid') 
 const generateUniqueId = require('generate-unique-id');
  
@@ -25,8 +22,7 @@ app.use('/peerjs', peerServer);
 
 app.set('view engine', 'ejs');
 
-app.use(express.json());
-app.use(cookieParser());
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 const chat_name= id+'chat';
@@ -40,7 +36,8 @@ const chat_name= id+'chat';
   
 const messageSchema = new mongoose.Schema({
   name: String,
-  text: String
+  text: String,
+  time: String
 });
 
 
@@ -49,7 +46,8 @@ const messageCollections = mongoose.model("messageCollections",messageSchema);
 
 const Defmsg = new messageCollections({
   name:"All messages",
-  text:""
+  text:"",
+  time:""
 });
 
 Defmsg.save()
@@ -63,29 +61,13 @@ app.get('/', (req, res) => {
     
 })
 app.post('/',(req,res)=>{
-  let token=req.body.token;
-  console.log(req.body.token);
-  async function verify() {
-    const ticket = await client.verifyIdToken({
-        idToken: token,
-        audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
-        // Or, if multiple clients access the backend:
-        //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
-    });
-    const payload = ticket.getPayload();
-    const userid = payload['sub'];
-    // If request specified a G Suite domain:
-    // const domain = payload['hd'];
-    name1=payload.given_name;
-    console.log(payload)
-  }
-  verify().catch(console.error);
+  
   
   res.redirect(`/${uuidV4()}`)  
 })
 app.get('/'+id,(req,res)=>{
 
-  res.render('CreateTeam', { roomId1:id})
+  res.render('ChatRoom', { roomId1:id})
 })
 
 
@@ -111,11 +93,18 @@ app.get('/:dbName/chat',(req,res)=>{                         //Api path where me
 
 
 app.post('/:dbName/chat',(req,res)=>{                   //Saves messages which is send from Outside Room 
-  
+  var currentdate = new Date(); 
+ var datetime =  currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
 
   const Outmsg = new messageCollections({ 
-    name:name1,
-    text:req.body.TeamMsg
+    name:req.body.Name,
+    text:req.body.TeamMsg,
+    time: datetime
   });
 
   Outmsg.save()
@@ -147,10 +136,19 @@ try {
       
   
       socket.on('message', (message) => {
+
+        var currentdate = new Date(); 
+       var datetime =  currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
           
         const msg = new messageCollections({         //Saves messages which send from inside room
           name: username,
-          text: message
+          text: message,
+          time: datetime
         });
 
         msg.save();
