@@ -1,0 +1,226 @@
+body{
+    background-color: black;
+}
+.main {
+    height: 100vh;
+    display: flex;
+    flex-direction :row;
+    justify-content:space-around;
+    
+}
+
+.main__left {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+}
+
+.main__right {
+    flex: 0.2
+}
+
+.main__videos {
+    flex-grow: 1;
+    background-color: black;
+    display: flex;
+    
+    align-items: center;
+    padding: 40px;
+}
+
+.main__controls {
+    background-color: rgb(17, 16, 16);
+}
+
+.main__right {
+    background-color: #242324;
+    border-left: 1px solid #3D3D42;
+}
+
+.main__controls {
+    color: #D2D2D2;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    position:relative;
+}
+
+.main__controls__block {
+    display: flex;
+    
+}
+
+.main__controls__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    width: 50px;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+}
+
+.main__controls__button:hover {
+    background-color: #343434;
+    border-radius: 55%;
+}
+
+.main__controls__button i {
+    font-size: 24px;
+}
+
+.main__right {
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+
+    .main__header {
+        padding: 20px;
+        display: flex;
+        color: #F5F5F5;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 0;
+       
+        
+      }
+      h6 {
+        margin: 0;
+        font-weight: 400;
+      }
+      .fas fa-times{
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+.main__chat_window {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.messages{
+    color: white;
+    list-style: none;
+    height:580px;
+}
+
+.main__message_container {
+    padding: 22px 12px;
+    display: flex;
+}
+
+.main__message_container input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: #F5F5F5;
+}
+
+.leave_meeting {
+    color: #EB534B;
+}
+
+.unmute, .stop {
+    color: #CC3B33;
+}
+
+.share{
+    border-width: 0;
+    padding:0;
+}
+
+
+
+.message_header:hover {
+    background-color: #343434;
+    border-radius: 5px;
+   
+}
+
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+.popuptext{
+    height:340px;
+    width:370px;
+}
+
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  #Share{
+    width: 370px;
+    justify-content: left;
+
+  }
+
+  a{
+      color:white;
+      font-size:40px;
+}

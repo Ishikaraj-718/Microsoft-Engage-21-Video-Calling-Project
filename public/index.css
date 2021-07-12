@@ -1,0 +1,104 @@
+#slider{
+    width:500px;
+    height: 100px;
+    margin-left: 900px;
+    margin-top:-300px;
+    
+}
+
+header{
+	font-weight: 400;
+	font-size: 30px;
+}
+body{
+    background: rgb(0, 132, 255);
+	font-family: 'Noto Sans HK', sans-serif;
+	
+	color: white;
+}
+ #Date{
+	 margin-left: 900px;
+ }
+ 
+ p{
+    margin-top: 100px;
+    margin-left: 10px;
+	font-weight: 400;
+	font-size: 40px;
+	margin-bottom:50px;
+}
+ 
+
+
+ i{
+     color:white;
+	 font-size: 60px;
+	 padding-left: 40px;
+
+ }
+
+.container{
+	margin:0%;
+	padding-left: 40px;
+}
+
+.join__button{
+	color: white;
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+	border-radius: 12px; 
+	
+	border-width: 0px;
+	margin-bottom: 20px;
+
+
+	font-weight: 400;
+	font-size: 25px;
+
+	padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+	
+}
+
+.join__button :hover{
+	background-color:grey;
+}
+
+.roomid{
+	color: white;
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+	border-radius: 12px; 
+	
+	width: 600px;
+    padding-left: 7px;
+    margin-bottom: 20px;
+
+
+	font-weight: 400;
+	font-size: 25px;
+
+	padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
+
+.inputRoomid{
+	color: #0dcaf0;
+    
+	
+	width: 600px;
+    
+
+    margin-top: 5px;
+	margin-bottom: 10px;
+	font-weight: 400;
+	font-size: 25px;
+
+	
+
+}
+

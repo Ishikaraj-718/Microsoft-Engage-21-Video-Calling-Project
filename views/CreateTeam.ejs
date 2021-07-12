@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team</title>
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@500&display=swap" rel="stylesheet"> 
+   <script>
+        const ROOM_ID1 = "<%= roomId1 %>"
+     </script>
+    <link rel="stylesheet" href="CreateTeam.css">
+</head>
+<body>
+     
+    <form action="/" method="get" style="margin-left: 50px; margin-top:20px">     <!-- Home -->
+             <button type="submit" >Home</button>
+    </form>
+    <form id="join-room" action="/<%=roomId1%>create" method="get" target="_blank" style="margin-left:1300px; margin-top:0px">
+                   <button >Join Room</button>
+    </form>
+   
+     
+    <form id="add_data" action="/<%=roomId1%>chat/chat" method="post">
+                 
+                 <input id="inputmsg" type="text" name="TeamMsg" onchange="updateInputmsg(this.value)" placeholder="Enter Your Message" required autofocus>
+                 <button id="send" >Send</button><br>
+                 <button type="button" onClick="window.location.reload();" style="margin-left: 50px;">Click To see Msgs</button>
+    </form>
+    <div class="ShowMsg" >
+            <div class="msgContainer" >
+               <div id="msg">
+                                                         <!-- Chat storage -->
+               </div>
+            </div>
+       </div>
+            
+         
+   
+             
+    <script src="CreateTeam.js"></script>
+</body>
+</html>
